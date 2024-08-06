@@ -89,6 +89,14 @@ public class Empresa implements Serializable {
         this.ramoAtividade = ramoAtividade;
     }
     
+    public TipoEmpresa getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoEmpresa tipo) {
+        this.tipo = tipo;
+    }
+    
     // HashCode e Equals
     @Override
     public boolean equals(Object o) {
@@ -110,4 +118,5 @@ public class Empresa implements Serializable {
                 "id=" + id +
                 '}';
     }
+
 }
