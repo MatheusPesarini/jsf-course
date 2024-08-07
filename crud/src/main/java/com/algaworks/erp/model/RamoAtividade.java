@@ -1,6 +1,5 @@
 package com.algaworks.erp.model;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.*;
@@ -8,8 +7,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "ramo_atividade")
 public class RamoAtividade implements Serializable {
-
-    @Serial
+    
     private static final long serialVersionUID = 1L;
 
     @Id

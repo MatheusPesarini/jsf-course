@@ -1,6 +1,5 @@
 package com.algaworks.erp.model;
 
-import java.io.Serial;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.io.Serializable;
@@ -12,7 +11,6 @@ import javax.persistence.*;
 @Table(name = "empresa")
 public class Empresa implements Serializable {
     
-    @Serial
     private static final long serialVersionUID = 1L;
     
     @Id
