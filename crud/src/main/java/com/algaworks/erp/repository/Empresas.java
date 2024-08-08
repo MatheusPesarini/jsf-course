@@ -1,49 +1,50 @@
 package com.algaworks.erp.repository;
 
-import com.algaworks.erp.model.Empresa;
+import java.io.Serializable;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import java.io.Serializable;
-import java.util.List;
+
+import com.algaworks.erp.model.Empresa;
 
 public class Empresas implements Serializable {
-    
-    private static final long serialVersionUID = 1L;
-    
-    @Inject
-    private EntityManager manager;
-    
-    public Empresas(){
-        
-    }
 
-    public Empresas(EntityManager manager) {
-        this.manager = manager;
-    }
+	private static final long serialVersionUID = 1L;
 
-    public Empresa porId(Long id) {
-        return manager.find(Empresa.class, id);
-    }
+	@Inject
+	private EntityManager manager;
 
-    public List<Empresa> pesquisar(String nome) {
-        String jpql = "from Empresa where nomeFantasia like :nomeFantasia";
+	public Empresas() {
 
-        TypedQuery<Empresa> query = manager
-                .createQuery(jpql, Empresa.class);
+	}
 
-        query.setParameter("nomeFantasia", nome + "%");
+	public Empresas(EntityManager manager) {
+		this.manager = manager;
+	}
 
-        return query.getResultList();
-    }
+	public Empresa porId(Long id) {
+		return manager.find(Empresa.class, id);
+	}
 
-    public Empresa guardar(Empresa empresa) {
-        return manager.merge(empresa);
-    }
+	public List<Empresa> pesquisar(String nome) {
+		String jpql = "from Empresa where nomeFantasia like :nomeFantasia";
+		
+		TypedQuery<Empresa> query = manager
+				.createQuery(jpql, Empresa.class);
+		
+		query.setParameter("nomeFantasia", nome + "%");
+		
+		return query.getResultList();
+	}
 
-    public void remover(Empresa empresa) {
-        empresa = porId(empresa.getId());
-        manager.remove(empresa);
-    }
+	public Empresa guardar(Empresa empresa) {
+		return manager.merge(empresa);
+	}
+
+	public void remover(Empresa empresa) {
+		empresa = porId(empresa.getId());
+		manager.remove(empresa);
+	}
 }
