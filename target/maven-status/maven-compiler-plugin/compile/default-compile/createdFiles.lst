@@ -1,0 +1,16 @@
+com\ericklaus\erp\controller\GestaoEmpresasBean.class
+com\ericklaus\erp\util\EntityManagerProducer.class
+com\ericklaus\id\RelatorioService.class
+com\ericklaus\erp\model\RamoAtividade.class
+com\ericklaus\erp\util\Transacional.class
+com\ericklaus\erp\repository\SchemaGeneration.class
+com\ericklaus\id\Pedidos.class
+com\ericklaus\erp\model\Empresa.class
+com\ericklaus\erp\repository\CamadaPersistencia.class
+com\ericklaus\id\RelatorioServlet.class
+com\ericklaus\erp\repository\RamoAtividades.class
+com\ericklaus\erp\util\TransacionalInterceptor.class
+com\ericklaus\erp\service\CadastroEmpresaService.class
+com\ericklaus\erp\model\TipoEmpresa.class
+com\ericklaus\erp\repository\Empresas.class
+com\ericklaus\id\Main.class
