@@ -1,6 +1,7 @@
 package com.matheusrogerio.erp.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 
@@ -47,6 +48,17 @@ public class Empresa implements Serializable {
 	@Enumerated(EnumType.STRING) // Ordinal grava a posicao da escolha no enum, string grava o valor textual
 	@Column(nullable = false, length = 30)
 	private TipoEmpresa tipo;
+	
+	@Column(precision = 10, scale = 2) // precision é o número total de dígitos e scale é o número de dígitos à direita da vírgula
+	private BigDecimal faturamento;
+
+	public BigDecimal getFaturamento() {
+		return faturamento;
+	}
+
+	public void setFaturamento(BigDecimal faturamento) {
+		this.faturamento = faturamento;
+	}
 
 	public Long getId() {
 		return id;
