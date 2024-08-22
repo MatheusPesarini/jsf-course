@@ -1,7 +1,6 @@
 package com.matheusrogerio.erp.model;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,16 +9,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity // Informa que a RamoAtividade é referente a uma tabela do banco de dados
-@Table(name="ramo_atividade") // A RamoAtividade é referente a uma tabela chamada ramo_atividade 
+@Entity
+@Table(name = "ramo_atividade")
 public class RamoAtividade implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-	
-	@Id // Informa que a variável ID é uma chave primária no banco de dados
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // O id seja gerado automaticamente por meio do sql, sem atribuição manual
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(nullable = false, length = 80)
 	private String descricao;
 
@@ -41,7 +40,10 @@ public class RamoAtividade implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
 	}
 
 	@Override
@@ -53,13 +55,16 @@ public class RamoAtividade implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		RamoAtividade other = (RamoAtividade) obj;
-		return Objects.equals(id, other.id);
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 
 	@Override
 	public String toString() {
 		return "RamoAtividade [id=" + id + "]";
 	}
-	
-	
 }
