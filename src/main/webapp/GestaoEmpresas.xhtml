@@ -15,32 +15,30 @@
     </f:metadata>
 
     <h:form>
+        <p:messages><p:autoUpdate/> </p:messages>
+
         <p:toolbar>
             <f:facet name="left">
                 <p:inputText placeholder="Digite aqui um termo para pesquisa..."
                              size="30"/>
 
-                <p:commandButton value="Pesquisar" icon="fa fa fa-search" />
+                <p:commandButton value="Pesquisar" icon="pi pi-search" />
 
-                <span class="ui-separator">
-	                <span class="ui-icon ui-icon-grip-dotted-vertical" />
-	            </span>
+                <i class="pi pi-ellipsis-v px-2"/>
 
-                <p:commandButton value="Nova" icon="fa fa-plus" />
+                <p:commandButton value="Nova" icon="pi pi-plus" onclick="PF('empresaDialogWidgetVar').show()"/>
+                
+                <i class="pi pi-ellipsis-v px-2"/>
 
-                <span class="ui-separator">
-	                <span class="ui-icon ui-icon-grip-dotted-vertical" />
-	            </span>
+                <p:commandButton title="Editar" icon="pi pi-file-edit" />
 
-                <p:commandButton title="Editar" icon="fa fa-edit" />
+                <i class="pi pi-ellipsis-v px-2"/>
 
-                <p:commandButton title="Excluir" icon="fa fa-trash" />
+                <p:commandButton title="Excluir" icon="pi pi-trash" />
 
-                <span class="ui-separator">
-	                <span class="ui-icon ui-icon-grip-dotted-vertical" />
-	            </span>
+                <i class="pi pi-ellipsis-v px-2"/>
 
-                <p:commandButton title="Exportar para o Excel" icon="fa fa-file-excel-o" />
+                <p:commandButton title="Exportar para o Excel" icon="pi pi-file-excel" />
             </f:facet>
         </p:toolbar>
 
@@ -65,6 +63,10 @@
                 <h:outputText value="#{empresa.ramoAtividade.descricao}"/>
             </p:column>
         </p:dataTable>
+        
+        <p:dialog header="Nova empresa" widgetVar="empresaDialogWidgetVar" modal="true" resizable="false" closeOnEscape="true">
+            <p:commandButton value="Salvar" icon="pi pi-check" />
+        </p:dialog>
     </h:form>
 </ui:define>
 
